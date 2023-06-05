@@ -109,16 +109,12 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
 
-# short for 'print same'. prints without a newline, thus printing on the 'same' line.
-def prints(string):
-    print(string, end='')
-
 # short for 'print limit'. prints the message with a specified character limit per line.
 # the limit can be set with a message or by passing an empty message.
 # once the limit is set, it will stay the same on following function calls until changed.
 def printl(message, limit=80):
     return message
 
-# short for 'print format'. combines the 'prints' and 'printl' methods. prints a message
-def printf(message, length=80):
-    return message
+# short for 'print same'. prints without a newline, thus printing on the 'same' line.
+def prints(string, limit=-1):
+    print(string, end='')
