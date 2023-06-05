@@ -1,4 +1,4 @@
-# Python functions library v3
+# Python functions library
 # written by Liam Swayne
 
 # takes a package name, and installs it with pip
