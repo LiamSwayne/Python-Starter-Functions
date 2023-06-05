@@ -133,5 +133,36 @@ def printl(message, limit=80):
 # has the same character limit functionality as 'printl', but ends without a newline.
 # the character limit is off by default.
 # the character limits for 'printl' and 'prints' are independent.
-def prints(string, limit=-1):
-    print(string, end='')
+def prints(message, limit=None):
+    if limit is None:
+        if hasattr(prints, 'current_limit'):
+            delattr(prints, 'current_limit')
+    else:
+        prints.current_limit = limit
+
+    if hasattr(prints, 'current_limit'):
+        limit = prints.current_limit
+    else:
+        limit = float('inf')
+
+    words = message.split()
+    lines = []
+    current_line = ''
+
+    for word in words:
+        while len(word) > limit:
+            # Split the word into multiple lines if it exceeds the limit
+            lines.append(word[:limit])
+            word = word[limit:]
+
+        if len(current_line) + len(word) + 1 <= limit:  # Check if adding the word exceeds the limit (+1 for space)
+            current_line += word + ' '
+        else:
+            lines.append(current_line.strip())
+            current_line = word + ' '
+
+    lines.append(current_line.strip())
+
+    printed_lines = '\n'.join(lines)
+    if printed_lines:  # Only print if there are lines to print
+        print(printed_lines, end='')
