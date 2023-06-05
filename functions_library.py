@@ -1,8 +1,8 @@
 # Python functions library
 # written by Liam Swayne
 
-# takes a package name, and installs it with pip
-# if pip is not updated, the function updates pip
+# takes a package name, and installs it with pip.
+# if pip is not updated, the function updates pip.
 def install(package):
     import importlib, subprocess, sys
 
@@ -23,9 +23,9 @@ def install(package):
         except Exception:
             print("ALERT! Could not install '"+package+"'")
 
-# takes message, which will display when the alert is called
-# gives the line number at which the alert was called
-# ex: alert("Dangerous for loop") on line 16 gives "ALERT! Dangerous for loop <-- line 16"
+# takes message, which will display when the alert is called.
+# gives the line number at which the alert was called.
+# ex: alert("Dangerous for loop") on line 16 prints "ALERT! Dangerous for loop <-- line 16"
 def alert(message=""):
     import inspect
 
@@ -37,8 +37,8 @@ def alert(message=""):
     else:
         print("ALERT! "+message+" <-- line "+str(line_no))
 
-# takes any built-in type of input, and converts it to the most likely type
-# if a list, or list of lists is given, every item in every list is assigned its most likely type
+# takes any built-in type of input, and converts it to the most likely type.
+# if a list, or list of lists is given, every item in every list is assigned its most likely type.
 # ex: setType("  -1    ") returns -1
 # ex: setType([1, 2, "3", [4, "5"]]) returns [1, 2, 3, [4, 5]]
 def setType(input):
@@ -63,7 +63,7 @@ def setType(input):
             pass
     return input
 
-# get html page as string from URL
+# get html page as string from URL.
 def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     import requests, sys, bs4, re
     
