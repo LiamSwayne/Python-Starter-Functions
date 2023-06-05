@@ -118,16 +118,25 @@ def printl(message, limit=80):
     current_line = ''
     
     for word in words:
-        if len(current_line) + len(word) + 1 <= limit:  # Check if adding the word exceeds the limit (+1 for space)
+        if len(word) > limit:
+            # Split the word into chunks of length 'limit'
+            chunks = [word[i:i+limit] for i in range(0, len(word), limit)]
+            for chunk in chunks:
+                lines.append(chunk)
+                print(chunk)
+        elif len(current_line) + len(word) + 1 <= limit:  # Check if adding the word exceeds the limit (+1 for space)
             current_line += word + ' '
         else:
             lines.append(current_line.strip())
+            print(current_line.strip())
             current_line = word + ' '
     
     lines.append(current_line.strip())
+    print(current_line.strip())
     
     for line in lines:
         print(line)
+
 
 # short for 'print same'. prints without a newline, thus printing on the 'same' line.
 # has the same character limit functionality as 'printl', but ends without a newline.
