@@ -113,7 +113,21 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
 # the limit can be set with a message or by passing an empty message.
 # once the limit is set, it will stay the same on following function calls until changed.
 def printl(message, limit=80):
-    return message
+    words = message.split()  # Split the message into individual words
+    lines = []
+    current_line = ''
+    
+    for word in words:
+        if len(current_line) + len(word) + 1 <= limit:  # Check if adding the word exceeds the limit (+1 for space)
+            current_line += word + ' '
+        else:
+            lines.append(current_line.strip())
+            current_line = word + ' '
+    
+    lines.append(current_line.strip())
+    
+    for line in lines:
+        print(line)
 
 # short for 'print same'. prints without a newline, thus printing on the 'same' line.
 # has the same character limit functionality as 'printl', but ends without a newline.
