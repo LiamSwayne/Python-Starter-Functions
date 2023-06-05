@@ -116,5 +116,7 @@ def printl(message, limit=80):
     return message
 
 # short for 'print same'. prints without a newline, thus printing on the 'same' line.
+# has the same character limit functionality as 'printl', but ends without a newline.
+# the character limit is off by default.
 def prints(string, limit=-1):
     print(string, end='')
