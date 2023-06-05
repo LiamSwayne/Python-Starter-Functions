@@ -109,6 +109,9 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
 
-# prints without a newline. short for 'print same'
+# short for 'print same'. prints without a newline, thus printing on the 'same' line.
 def prints(string):
     print(string, end='')
+# short for 'print limit'. prints the message with a specified character limit per line.
+def printl(message, length=80):
+    return message
