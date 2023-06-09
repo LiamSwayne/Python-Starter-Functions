@@ -1,4 +1,4 @@
-# Python functions library
+# library of python starter functions
 # written by Liam Swayne
 
 # takes a package name, and installs it with pip.
