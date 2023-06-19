@@ -108,3 +108,15 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
         return text
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
+
+
+# start a timer that returns seconds
+def tic():
+    import time
+    global start
+    start = time.time()
+
+# end a timer that returns seconds
+def toc():
+    import time
+    return time.time() - start
