@@ -1,6 +1,20 @@
 # library of python starter functions
 # written by Liam Swayne
 
+# takes message, which will display when the alert is called.
+# gives the line number at which the alert was called.
+# ex: alert("Dangerous for loop") on line 16 prints "ALERT! Dangerous for loop <-- line 16"
+def alert(message=""):
+    import inspect
+
+    message = str(message)
+    frame = inspect.currentframe().f_back
+    line_no = frame.f_lineno
+    if message == "":
+        print("ALERT! <-- line "+str(line_no))
+    else:
+        print("ALERT! "+message+" <-- line "+str(line_no))
+
 # takes a package name, and installs it with pip.
 # if pip is not updated, the function updates pip.
 def install(package):
@@ -22,20 +36,6 @@ def install(package):
             print("Successfully installed '"+package+"' with pip")
         except Exception:
             print("ALERT! Could not install '"+package+"'")
-
-# takes message, which will display when the alert is called.
-# gives the line number at which the alert was called.
-# ex: alert("Dangerous for loop") on line 16 prints "ALERT! Dangerous for loop <-- line 16"
-def alert(message=""):
-    import inspect
-
-    message = str(message)
-    frame = inspect.currentframe().f_back
-    line_no = frame.f_lineno
-    if message == "":
-        print("ALERT! <-- line "+str(line_no))
-    else:
-        print("ALERT! "+message+" <-- line "+str(line_no))
 
 # takes any built-in type of input, and converts it to the most likely type.
 # if a list, or list of lists is given, every item in every list is assigned its most likely type.
