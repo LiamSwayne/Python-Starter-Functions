@@ -109,13 +109,14 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
 
-# start a timer that returns seconds
-def tic():
+# Start a timer that returns seconds.
+# Pass a name to run multiple timers simultaneously.
+# it is required to use the same name when closing the timer.
+def tic(name=""):
     import time
-    global start
-    start = time.time()
+    globals()["start" + str(name)] = time.time()
 
-# end a timer that returns seconds
-def toc():
+# End a timer and return the elapsed time in seconds.
+def toc(name=""):
     import time
-    return time.time() - start
+    return time.time() - globals()["start" + str(name)]
