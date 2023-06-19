@@ -109,14 +109,25 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
 
-# Start a timer that returns seconds.
-# Pass a name to run multiple timers simultaneously.
+# start a timer that returns seconds.
+# pass a name to run multiple timers simultaneously.
 # it is required to use the same name when closing the timer.
 def tic(name=""):
     import time
     globals()["start" + str(name)] = time.time()
 
-# End a timer and return the elapsed time in seconds.
+# end a timer and return the elapsed time in seconds.
 def toc(name=""):
     import time
     return time.time() - globals()["start" + str(name)]
+
+# flatten a nested list into a non-nested list
+# example: [1, [2, [3, 4], 5], 6, [7, 8]] --> [1, 2, 3, 4, 5, 6, 7, 8]
+def flatten(lst):
+    flattened_list = []
+    for item in lst:
+        if isinstance(item, list):
+            flattened_list.extend(flatten(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
