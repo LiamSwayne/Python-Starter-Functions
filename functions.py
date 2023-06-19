@@ -109,7 +109,6 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     else:
         alert("getURL() <-- LINK EXTRACT FAILURE")
 
-
 # start a timer that returns seconds
 def tic():
     import time
