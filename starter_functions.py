@@ -35,7 +35,7 @@ def install(package):
             subprocess.check_call([sys.executable, "-m", "pip", "install", package])
             print("Successfully installed '"+package+"' with pip")
         except Exception:
-            alert("Could not install '+"package"+' with pip")
+            print("Could not install '+"package"+' with pip")
 
 # takes any built-in type of input, and converts it to the most likely type.
 # if a list, or list of lists is given, every item in every list is assigned its most likely type.
