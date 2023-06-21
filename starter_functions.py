@@ -107,7 +107,7 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     if successful:
         return text
     else:
-        alert("getURL() <-- LINK EXTRACT FAILURE")
+        print("getURL() <-- LINK EXTRACT FAILURE")
 
 # start a timer that returns seconds.
 # pass a name to run multiple timers simultaneously.
