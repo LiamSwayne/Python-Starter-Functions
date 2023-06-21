@@ -104,10 +104,7 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
             for i in range(len(blankTexts)):
                 if re.search(blankTexts[i],text):
                     successful = False
-    if successful:
-        return text
-    else:
-        print("getURL() <-- LINK EXTRACT FAILURE")
+    return text
 
 # start a timer that returns seconds.
 # pass a name to run multiple timers simultaneously.
