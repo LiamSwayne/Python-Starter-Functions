@@ -81,7 +81,7 @@ def getURL(linkStr,ipaddressClassA=109,shutdown=False):
     rerouteCount = 0
     while not successful:
         if rerouteCount >= 10:
-            print("Reroute limit reached hile getting: "+linkStr)
+            print("Reroute limit reached while getting: "+linkStr)
             if shutdown:
                 print("Shutting down.")
                 sys.exit()
